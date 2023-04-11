@@ -1,0 +1,164 @@
+/*importing other css files*/
+@import "sections.css";
+@import "forms.css";
+@import "buttons.css";
+@import "popup.css";
+@import "sidebar.css";
+
+/*defining custom css variables*/
+:root {
+    --bg-primary: #F9F8F6;
+    --bg-secondary: #D6B496;
+    --bg-tertiary: #787D7D;
+    --bg-tertiary-light: rgba(120, 125, 125, 0.3);
+    --bg-white: #fff;
+
+    --font-color: #333333;
+    --error-color: #DC143C;
+    --green-color: #007900;
+
+    --heading-1-size: 18pt;
+    --heading-2-size: 16pt;
+    --heading-3-size: 14pt;
+    --heading-4-size: 12pt;
+    --paragraph-size: 11pt;
+
+    --box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;;
+}
+
+/*fonts & headings*/
+@font-face {
+    font-family: "sora";
+    src: url('/fonts/sora.ttf') format("truetype-variations");
+    font-weight: 1 999;
+}
+
+h1 {
+    font-size: var(--heading-1-size);
+    font-weight: bold;
+}
+
+h2 {
+    font-size: var(--heading-2-size);
+    font-weight: 800;
+}
+
+h3 {
+    font-size: var(--heading-3-size);
+    font-weight: 700;
+}
+
+h4 {
+    font-size: var(--heading-4-size);
+    font-weight: 600;
+}
+
+p {
+    font-size: var(--paragraph-size);
+    font-weight: normal;
+}
+
+hr {
+    border: 1px solid var(--bg-tertiary-light);
+}
+
+.img-fluid {
+    width: 100%;
+    height: auto;
+}
+
+
+/*apply all styles*/
+* {
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "sora";
+    color: var(--font-color);
+    font-size: var(--paragraph-size);
+}
+
+body {
+    background-color: var(--bg-primary);
+    position: relative;
+}
+
+/*standard classes*/
+.column {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    gap: 3rem;
+    flex-flow: wrap;
+}
+
+
+.center {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.space-between {
+    display: flex;
+    justify-content: space-between;
+    gap: 3rem;
+}
+
+.body-dashboard {
+    width: 100%;
+    min-height: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+@media only screen and (max-width: 1000px) {
+    .body-dashboard {
+       flex-direction: column;
+    }
+}
+
+.body-dashboard main{
+    width: 100%;
+    padding: 3rem 2rem 2rem 2rem;
+}
+
+
+.sidebar-nav-sublist .active {
+    color: var(--bg-secondary);
+    opacity: 1;
+}
+
+textarea {
+    resize: none;
+}
+
+a {
+    position: relative;
+}
+
+@media only screen and (max-width: 800px) {
+    .row {
+        flex-flow: wrap;
+        gap: 1rem !important;
+        width: 100%;
+    }
+
+    .column {
+        gap: 2rem !important;
+        width: 100%!important;
+    }
+
+    .space-between {
+        flex-direction: column;
+        gap: 2rem;
+    }
+}
+
+
+

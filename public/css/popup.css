@@ -1,0 +1,46 @@
+.popup-parent {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.1);
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+
+.popup {
+    padding: 2rem;
+    background-color: var(--bg-white);
+    box-sizing: var(--box-shadow);
+    width: 40%;
+    z-index: 999;
+}
+
+.popup header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.popup header span {
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 1000px) {
+    .popup {
+        width: 60%;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .popup {
+        width: 100%;
+    }
+}
+
+
+.show {
+    display: flex !important;
+}
