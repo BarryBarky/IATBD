@@ -90,6 +90,8 @@ Route::get('/dashboard/gebruikers/{user}', [\App\Http\Controllers\UserController
 
 Route::put('/dashboard/gebruikers/block', [\App\Http\Controllers\UserController::class, 'block'])->middleware('auth');
 
+Route::delete('/dashboard/oppasser/{petSitter}/aanvraag', [\App\Http\Controllers\PetSitterController::class, 'removeRequest'])->middleware('auth');
+
 Route::post('/dashboard/profiel/{user}/review', [\App\Http\Controllers\ReviewController::class, 'store'])->middleware('auth');
 
 Route::delete('/dashboard/profiel/{user}/review/{review}', [\App\Http\Controllers\ReviewController::class, 'destroy'])->middleware('auth');

@@ -119,6 +119,11 @@ class PetSitterController extends Controller
         return redirect('/dashboard/mijn-profiel')->with('message', 'Oppasser aangepast');
     }
 
+    public function removeRequest (Request $request, PetSitter $petSitter) {
+        $petSitter->advertisements()->detach($request->advertisement);
+        return back()->with('message', 'Oppasservraag verwijderd');
+    }
+
     public function destroy(PetSitter $petSitter)
     {
         $user = Auth::user();

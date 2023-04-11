@@ -4,7 +4,7 @@
         @php($isCreated = true)
     @endif
 @endforeach
-@if($isCreated)
+@if(!$isCreated)
     <button class="button" onclick="toggleModal('create-review')">
         Review Plaatsen
     </button>

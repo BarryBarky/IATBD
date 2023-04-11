@@ -102,15 +102,18 @@
                     <x-reviews.index :reviews="$user->reviews"/>
                 </section>
             </section>
-            @if(Auth::id() !== $user->id && isset($isAccepted))
-                <x-reviews.create :user="$user"/>
+            @if(isset($isAccepted))
+{{--                @dd($isAccepted)--}}
+                @if(Auth::id() !== $user->id && $isAccepted === true)
+                    <x-reviews.create :user="$user"/>
+                @endif
             @endif
         </section>
         <h3 style="margin: 3rem 0 1rem 0">Leefomgeving</h3>
         <section class="show-image-gallery" style="gap: 3rem">
             @foreach($user->petSitter->images as $image)
                 <img src="{{\Illuminate\Support\Facades\Storage::url($image->url)}}" alt="leefomgeving"
-                     class="img-fluid" style="width: 100%; height: 300px;"/>
+                     class="img-fluid" style="width: 100%; height: 300px; object-fit: cover"/>
             @endforeach
         </section>
     @endif

@@ -2,7 +2,7 @@
     <form action="/dashboard/gebruikers/block" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
-        <section class="column">
+        <section class="column" style="overflow-x:auto;">
             <table>
                 <tr>
                     <th>Voornaam</th>
@@ -14,7 +14,7 @@
                 </tr>
                 @foreach($users as $user)
                     <tr>
-                        <td>{{$user->first_name}}</td>
+                        <td style="padding: 1rem">{{$user->first_name}}</td>
                         <td>{{$user->last_name}}</td>
                         <td>{{$user->age}}</td>
                         <td>{{$user->sex}}</td>

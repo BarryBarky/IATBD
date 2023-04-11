@@ -9,15 +9,8 @@
     </section>
     <section class="tabs">
         <a href="{{url()->current()}}"
-           @if(Request::get('bekijk') !== "eigen")
             class="active"
-            @endif
         >Alle Advertenties</a>
-        <a href="{{url()->current()}}?bekijk=eigen"
-       @if(Request::get('bekijk') === "eigen")
-        class="active"
-           @endif
-        >Jouw Advertenties</a>
     </section>
    @include('partials._search')
     <section class="column">

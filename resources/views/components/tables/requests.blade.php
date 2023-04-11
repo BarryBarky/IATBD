@@ -1,4 +1,4 @@
-<form action="">
+<section class="column" style="overflow-x:auto;">
     <table>
         <tr>
             <th>Voornaam</th>
@@ -14,7 +14,7 @@
             @if(count($petSitter->advertisements) > 0)
                 @foreach($petSitter->advertisements as $advertisement)
                     <tr>
-                        <td>{{$petSitter->user->first_name}}</td>
+                        <td style="padding: 1rem">{{$petSitter->user->first_name}}</td>
                         <td>{{$petSitter->user->last_name}}</td>
                         <td>{{$petSitter->user->age}}</td>
                         <td>{{$petSitter->user->sex}}</td>
@@ -22,13 +22,19 @@
                         <td><a href="/dashboard/advertenties/{{$advertisement->id}}"><i class="fa-solid fa-money-check-dollar"></i></a></td>
                         <td>{{$advertisement->pivot->is_accepted ? 'Ja' : 'Nee'}}</td>
                         <td>
-                            <a href="">
-                                <i class="fa-solid fa-trash"></i>
-                            </a>
+                            <form action="/dashboard/oppasser/{{$petSitter->id}}/aanvraag" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <x-input type="hidden" name="advertisement" value="{{$advertisement->id}}"></x-input>
+                                <button>
+                                    <i class="fa-solid fa-trash"></i>
+                                </button>
+                            </form>
                         </td>
                     </tr>
                 @endforeach
             @endif
         @endforeach
     </table>
-</form>
+</section>
+

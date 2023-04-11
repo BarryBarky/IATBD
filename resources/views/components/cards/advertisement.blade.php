@@ -1,6 +1,6 @@
 <a class="card" href="{{url()->current()}}/{{$ad->id}}">
     <section >
-        <img src="{{isset($ad->image) ? Storage::url($ad->image): asset('/storage/advertisements/placeholder.png')}}" alt="Advertentie banner" class="img-fluid"/>
+        <img style="object-fit: cover; height: 300px" src="{{isset($ad->image) ? Storage::url($ad->image): asset('/storage/advertisements/placeholder.png')}}" alt="Advertentie banner" class="img-fluid"/>
         <ul class="meta-data" style="justify-content: start">
             <li>
                 <p style="font-weight: 600; font-size: 12pt">{{$ad->title}}</p>

@@ -5,8 +5,8 @@
             <section class="column" style="gap: 1rem">
                 <h3>Algemeen</h3>
                 <section class="row">
-                    <x-input label="Soort huisdier" type="select_pet_type" name="soort"/>
                     @if(request()->segment(2) === 'huisdieren')
+                        <x-input label="Soort huisdier" type="select_pet_type" name="soort"/>
                         <x-input label="Gelacht" type="select_sex" name="geslacht"/>
                     @endif
                     @if(request()->segment(2) === 'advertenties')
