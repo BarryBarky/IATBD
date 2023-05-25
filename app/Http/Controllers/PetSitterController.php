@@ -109,9 +109,18 @@ class PetSitterController extends Controller
             for ($i = 1; $i <= 3; $i++) {
                 if ($request->hasFile('image' . $i)) {
                     $formFields['image' . $i] = $request->file('image' . $i)->store('images', 'public');
-                    $petSitter->images->where('number', $i)->first()->update([
-                        "url" => $formFields['image' . $i],
-                    ]);
+                    if ($petSitter->images->where('number', $i)->first()) {
+                        $petSitter->images->where('number', $i)->first()->update([
+                            "url" => $formFields['image' . $i],
+                        ]);
+                    } else {
+                        PetSittersImage::create([
+                            "url" => $formFields['image' . $i],
+                            "number" => $i,
+                            "pet_sitter_id" => $petSitter->id
+                        ]);
+                    }
+
                 }
             }
         }
